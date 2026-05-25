@@ -242,18 +242,46 @@ function nextGalleryImage(e) {
 }
 
 // Configurar gestos de deslizar (swipe) e arrastar (mouse drag)
+let touchStartY = 0;
+let touchEndY = 0;
+
 function setupGalleryTouch() {
   const wrapper = document.querySelector('.modal-gallery-wrapper');
   if (!wrapper) return;
   
-  // Touch Events para mobile
+  // Touch Events para mobile (Compatibilidade estendida S23/Chrome/iOS)
   wrapper.addEventListener('touchstart', e => {
-    touchStartX = e.changedTouches[0].screenX;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    touchEndX = 0; // Resetar
+    touchEndY = 0; // Resetar
   }, { passive: true });
   
-  wrapper.addEventListener('touchend', e => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
+  wrapper.addEventListener('touchmove', e => {
+    touchEndX = e.touches[0].clientX;
+    touchEndY = e.touches[0].clientY;
+  }, { passive: true });
+  
+  wrapper.addEventListener('touchend', () => {
+    if (touchEndX === 0 || touchEndY === 0) return; // Toque simples, não deslizou
+    
+    const diffX = touchEndX - touchStartX;
+    const diffY = touchEndY - touchStartY;
+    
+    // Validar se o gesto foi predominantemente horizontal e longo o suficiente (limiar de 40px)
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+      if (diffX > 0) {
+        prevGalleryImage(); // Swipe para a direita -> Foto anterior
+      } else {
+        nextGalleryImage(); // Swipe para a esquerda -> Próxima foto
+      }
+    }
+    
+    // Resetar
+    touchStartX = 0;
+    touchStartY = 0;
+    touchEndX = 0;
+    touchEndY = 0;
   }, { passive: true });
   
   // Mouse Drag Events para desktop
@@ -280,15 +308,6 @@ function setupGalleryTouch() {
   wrapper.addEventListener('mouseleave', () => {
     isDragging = false;
   }, { passive: true });
-}
-
-function handleSwipe() {
-  const diff = touchEndX - touchStartX;
-  if (diff > 50) {
-    prevGalleryImage(); // Swipe para a direita -> Foto anterior
-  } else if (diff < -50) {
-    nextGalleryImage(); // Swipe para a esquerda -> Próxima foto
-  }
 }
 
 function closeModal(e) {

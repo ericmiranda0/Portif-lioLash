@@ -534,6 +534,16 @@ section{padding:5rem 1.5rem}
   0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(0.98); }
   50% { opacity: 1; transform: translateX(-50%) scale(1.02); }
 }
+@media (max-width: 768px) {
+  .gallery-nav {
+    display: none !important;
+  }
+}
+@media (min-width: 769px) {
+  .gallery-swipe-tip {
+    display: none !important;
+  }
+}
 .modal-content{
   background:var(--warm-white);
   padding:2rem 1.5rem;
