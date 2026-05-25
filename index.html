@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="Lash Designer Premium — Extensão de cílios com técnica exclusiva e atendimento personalizado">
+  <title>KAYLAN MARTINS BEAUTY — Studio Premium de Cílios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Josefin+Sans:wght@200;300;400&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Link para os estilos externos organizados -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-logo">KAYLAN MARTINS</div>
+    <div class="loader-sub">BEAUTY STUDIO</div>
+    <div class="loader-line"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <div class="nav-logo">
+      <img src="assets/img/logo.png" alt="Kaylan Martins Beauty Logo" class="logo-img">
+    </div>
+    <button class="nav-menu-btn" onclick="toggleDrawer()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- DRAWER (MENU RESPONSIVO) -->
+  <div class="drawer" id="drawer">
+    <button class="drawer-close" onclick="toggleDrawer()">✕</button>
+    <a href="#about" onclick="toggleDrawer()">Sobre</a>
+    <div class="drawer-line"></div>
+    <a href="#portfolio" onclick="toggleDrawer()">Portfólio</a>
+    <div class="drawer-line"></div>
+    <a href="#care" onclick="toggleDrawer()">Cuidados</a>
+    <div class="drawer-line"></div>
+    <a href="#cta" onclick="toggleDrawer()">Agendar</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-img-wrap">
+      <!-- Imagem real da profissional convertida e integrada no Hero -->
+      <img src="assets/img/profissional/kaylana_2.jpg" alt="Kaylan Martins Beauty" id="hero-img">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">STUDIO PREMIUM DE CÍLIOS</div>
+      <h1 class="hero-title">
+        KAYLAN MARTINS
+        <em>Beauty Studio</em>
+      </h1>
+      <div class="hero-divider"></div>
+      <p class="hero-sub">
+        Seu olhar transformado com<br>técnica exclusiva e cuidado artesanal
+      </p>
+      <!-- Ícone de agendamento alterado para calendário 🗓️ -->
+      <a href="https://wa.me/5588999187227?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." class="btn-primary" target="_blank">
+        <span class="btn-wa-icon">🗓️</span>
+        Agendar agora
+      </a>
+    </div>
+    <div class="hero-scroll">
+      <span>DESLIZE</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT (SOBRE) -->
+  <section id="about">
+    <div class="ornament reveal">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line"></div>
+    </div>
+    <div class="section-eyebrow reveal">A PROFISSIONAL</div>
+    <h2 class="section-title reveal">Sua Lash<br>Designer</h2>
+    <div class="section-line reveal"></div>
+
+    <div class="about-photo-wrap reveal">
+      <!-- Imagem real principal da Kaylana integrada aqui -->
+      <img class="about-photo" src="assets/img/profissional/kaylana_principal.jpg" alt="Kaylan Martins Lash Designer">
+      <div class="about-photo-frame"></div>
+    </div>
+
+    <!-- Apresentação atualizada focando em segurança, personalização e dedicação -->
+    <div class="about-text">
+      <p class="reveal">Apaixonada pela arte de emoldurar o olhar, busco constantemente as melhores técnicas do mercado para realçar a sua beleza natural com total segurança.</p>
+      <p class="reveal reveal-delay-1">Cada cliente recebe um atendimento absolutamente personalizado — porque cada olhar é único e merece ser tratado como uma obra de arte.</p>
+      <p class="reveal reveal-delay-2">Aqui, você encontra materiais selecionados de altíssima qualidade, um ambiente acolhedor e uma dedicação que vai muito além do procedimento.</p>
+    </div>
+
+    <!-- Diferenciais otimizados sem foco direto em anos de experiência, focando em qualidade -->
+    <div class="diferenciais">
+      <div class="dif-card reveal">
+        <span class="dif-icon">✦</span>
+        <div class="dif-label">Técnicas</div>
+        <div class="dif-value">Modernas</div>
+      </div>
+      <div class="dif-card reveal reveal-delay-1">
+        <span class="dif-icon">◈</span>
+        <div class="dif-label">Segurança</div>
+        <div class="dif-value">Total</div>
+      </div>
+      <div class="dif-card reveal reveal-delay-2">
+        <span class="dif-icon">❋</span>
+        <div class="dif-label">Materiais</div>
+        <div class="dif-value">Premium</div>
+      </div>
+      <div class="dif-card reveal reveal-delay-3">
+        <span class="dif-icon">✿</span>
+        <div class="dif-label">Cuidado</div>
+        <div class="dif-value">Individual</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="ornament reveal">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line"></div>
+    </div>
+    <div class="section-eyebrow reveal">GALERIA DE TRABALHOS</div>
+    <h2 class="section-title reveal">Portfólio</h2>
+    <div class="section-line reveal"></div>
+
+    <!-- Barra de Filtros simplificada, exibindo apenas as abas com fotos reais -->
+    <div class="portfolio-filter reveal" id="filter-bar">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="princesa">Princesa</button>
+      <button class="filter-btn" data-filter="brasileiro">Brasileiro</button>
+      <button class="filter-btn" data-filter="egipcio">Egípcio</button>
+    </div>
+
+    <!-- Grid do Portfólio (Construído dinamicamente via JS com apenas fotos reais) -->
+    <div class="portfolio-grid" id="portfolio-grid"></div>
+  </section>
+
+  <!-- MODAL DE DETALHES DO PORTFÓLIO -->
+  <div class="modal-bg" id="modal" onclick="closeModal(event)">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <img src="" alt="" id="modal-img" class="modal-img">
+      <div class="modal-content">
+        <div class="modal-badge" id="modal-badge">ESTILO</div>
+        <h3 class="modal-style" id="modal-style">Cílios Princesa</h3>
+        <div class="modal-sep"></div>
+        <p class="modal-desc" id="modal-desc"></p>
+        <!-- Ícone alterado para agenda/calendário 🗓️ -->
+        <a href="#" class="btn-wa-modal" id="modal-wa" target="_blank">
+          🗓️ &nbsp;Quero agendar esse modelo
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARE GUIDE (INFORMAÇÕES & CUIDADOS) -->
+  <section id="care">
+    <div class="ornament reveal">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line"></div>
+    </div>
+    <div class="section-eyebrow reveal">GUIA COMPLETO</div>
+    <h2 class="section-title reveal">Cuidados &<br>Informações</h2>
+    <div class="section-line reveal"></div>
+
+    <div class="care-tabs reveal">
+      <button class="care-tab active" onclick="switchTab('pre')">Pré-Procedimento</button>
+      <button class="care-tab" onclick="switchTab('pos')">Pós-Procedimento</button>
+      <button class="care-tab care-tab-agenda" onclick="switchTab('agenda')">Agendamento</button>
+    </div>
+
+    <div class="care-panel active" id="tab-pre">
+      <div class="care-item reveal">
+        <div class="care-num">01</div>
+        <div class="care-item-text">
+          <h4>Chegar sem maquiagem</h4>
+          <p>Venha com os olhos completamente limpos, sem máscara, sombra ou delineador.</p>
+        </div>
+      </div>
+      <div class="care-item reveal reveal-delay-1">
+        <div class="care-num">02</div>
+        <div class="care-item-text">
+          <h4>Não usar creme ao redor dos olhos</h4>
+          <p>Evite hidratantes, óleo e cremes 24h antes do procedimento para melhor fixação.</p>
+        </div>
+      </div>
+      <div class="care-item reveal reveal-delay-2">
+        <div class="care-num">03</div>
+        <div class="care-item-text">
+          <h4>Lentes de contato</h4>
+          <p>Retire as lentes antes do procedimento e traga o estojo para acomodá-las.</p>
+        </div>
+      </div>
+      <div class="care-item reveal reveal-delay-3">
+        <div class="care-num">04</div>
+        <div class="care-item-text">
+          <h4>Chegar descansada</h4>
+          <p>O procedimento exige que você permaneça de olhos fechados. É o momento perfeito para relaxar!</p>
+        </div>
+      </div>
+      <div class="care-alert reveal">
+        <p>⟡ A duração do procedimento varia de 1h30 a 3h dependendo do modelo escolhido. Reserve seu tempo com conforto.</p>
+      </div>
+    </div>
+
+    <div class="care-panel" id="tab-pos">
+      <div class="care-item reveal">
+        <div class="care-num">01</div>
+        <div class="care-item-text">
+          <h4>Primeiras 24 horas</h4>
+          <p>Evite qualquer contato com água, vapor, suor excessivo ou umidade nos cílios.</p>
+        </div>
+      </div>
+      <div class="care-item reveal reveal-delay-1">
+        <div class="care-num">02</div>
+        <div class="care-item-text">
+          <h4>Higiene correta</h4>
+          <p>Use limpeza específica para extensão de cílios. Nunca óleos ou removedores comuns.</p>
+        </div>
+      </div>
+      <div class="care-item reveal reveal-delay-2">
+        <div class="care-num">03</div>
+        <div class="care-item-text">
+          <h4>Escovinha diária</h4>
+          <p>Escove os cílios suavemente pela manhã e à noite para mantê-los alinhados e íntegros.</p>
+        </div>
+      </div>
+      <div class="care-item reveal reveal-delay-3">
+        <div class="care-num">04</div>
+        <div class="care-item-text">
+          <h4>Manutenção</h4>
+          <p>Recomendamos manutenção a cada 2–3 semanas para preservar o volume e o efeito perfeito.</p>
+        </div>
+      </div>
+      <div class="care-alert reveal">
+        <p>⟡ Evite esfregar os olhos, dormir com o rosto pressionado no travesseiro e usar máscara de cílios. Seus fios agradecem!</p>
+      </div>
+    </div>
+
+    <div class="care-panel" id="tab-agenda">
+
+      <!-- Informações gentis de agendamento -->
+      <div class="care-item reveal">
+        <div class="care-num">01</div>
+        <div class="care-item-text">
+          <h4>Pontualidade é cuidado</h4>
+          <p>Valorizo o seu tempo e o meu. Chegar no horário combinado garante que você aproveite cada minuto do seu atendimento com total dedicação.</p>
+        </div>
+      </div>
+      <div class="care-item reveal reveal-delay-1">
+        <div class="care-num">02</div>
+        <div class="care-item-text">
+          <h4>Precisando remarcar?</h4>
+          <p>Acontece! Avise com antecedência pelo WhatsApp para que eu possa organizar minha agenda e atender você do melhor jeito possível.</p>
+        </div>
+      </div>
+      <div class="care-item reveal reveal-delay-2">
+        <div class="care-num">03</div>
+        <div class="care-item-text">
+          <h4>Atendimento exclusivo</h4>
+          <p>Cada horário é reservado especialmente para você. Quando você agenda, alguém que também poderia ser atendida fica de fora — então o compromisso importa muito!</p>
+        </div>
+      </div>
+
+      <!-- Botão de ação de agendamento super elegante sem emojis e com grande destaque -->
+      <div class="care-action reveal" style="text-align: center; margin-top: 2.5rem; margin-bottom: 2rem;">
+        <a href="https://wa.me/5588999187227?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." class="btn-primary" target="_blank" style="display: inline-flex; justify-content: center; width: 100%; max-width: 340px;">
+          Agendar pelo WhatsApp
+        </a>
+      </div>
+
+      <div class="care-alert reveal">
+        <p>⟡ Minha agenda é organizada com muito carinho para que cada cliente saia satisfeita. Conte comigo para uma experiência incrível do início ao fim.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS: desativado por enquanto -->
+  <section id="testimonials" style="display:none" aria-hidden="true">
+    <div id="testi-slider"></div>
+    <div id="testi-dots"></div>
+  </section>
+
+  <!-- PAYMENT (PAGAMENTO) -->
+  <section id="payment">
+    <div class="ornament reveal">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line"></div>
+    </div>
+    <div class="section-eyebrow reveal">COMODIDADE</div>
+    <h2 class="section-title reveal">Formas de<br>Pagamento</h2>
+    <div class="section-line reveal"></div>
+
+    <div class="payment-grid payment-grid-3">
+      <div class="pay-card reveal">
+        <span class="pay-icon">⚡</span>
+        <div class="pay-label">Pix</div>
+        <div class="pay-detail">INSTANTÂNEO</div>
+      </div>
+      <div class="pay-card reveal reveal-delay-1">
+        <span class="pay-icon">📲</span>
+        <div class="pay-label">Cartão</div>
+        <div class="pay-detail">APROXIMAÇÃO</div>
+      </div>
+      <div class="pay-card reveal reveal-delay-2">
+        <span class="pay-icon">💵</span>
+        <div class="pay-label">Dinheiro</div>
+        <div class="pay-detail">À VISTA</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION (LOCALIZAÇÃO) -->
+  <section id="location">
+    <div class="section-eyebrow reveal">COMO NOS ENCONTRAR</div>
+    <h2 class="section-title reveal">Localização</h2>
+    <div class="section-line reveal"></div>
+
+    <!-- Mapa Interativo Real apontando para o endereço atualizado em Ipu - CE -->
+    <div class="map-wrap reveal">
+      <iframe
+        src="https://maps.google.com/maps?q=Avenida%20Jos%C3%A9%20Carvalho%20Arag%C3%A3o%2C%20977%2C%20Boa%20Vista%2C%20Ipu%20-%20CE&t=&z=16&ie=UTF8&iwloc=&output=embed"
+        loading="lazy"
+        title="Localização do Studio Kaylan Martins Beauty">
+      </iframe>
+    </div>
+
+    <!-- Endereço Atualizado de Ipu - CE -->
+    <div class="address-box reveal">
+      <p>
+        <strong>Avenida José Carvalho Aragão, n 977</strong><br>
+        Bairro Boa Vista · Ipu — CE<br>
+        CEP 62250-000
+      </p>
+    </div>
+
+    <!-- Rota Dinâmica para o GPS do Google Maps -->
+    <a href="https://www.google.com/maps/dir/?api=1&destination=Avenida+Jos%C3%A9+Carvalho+Arag+o,+977,+Boa+Vista,+Ipu+-+CE" class="btn-outline reveal" target="_blank">
+      ↗ Como chegar
+    </a>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="cta">
+    <div class="cta-eyebrow reveal">TRANSFORME SEU OLHAR</div>
+    <h2 class="cta-title reveal">
+      Seu olhar<br>
+      <em>merece esse cuidado.</em>
+    </h2>
+    <div class="section-line center reveal"></div>
+    <p class="cta-sub reveal">
+      Agende sua consulta e descubra o modelo<br>perfeito para o seu tipo de olho e estilo de vida.
+    </p>
+    <!-- Ícone de CTA alterado para agenda/calendário 🗓️ -->
+    <a href="https://wa.me/5588999187227?text=Olá!%20Gostaria%20de%20agendar%20minha%20sessão%20de%20extensão%20de%20cílios." class="btn-wa-big reveal" target="_blank">
+      <span class="wa-icon-big">🗓️</span>
+      Agendar pelo WhatsApp
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">KAYLAN MARTINS BEAUTY</div>
+    <div class="footer-text">© 2026 · TODOS OS DIREITOS RESERVADOS</div>
+  </footer>
+
+  <!-- FLOATING WA (ÍCONE FLUTUANTE DO WHATSAPP COM NÚMERO ATUALIZADO) -->
+  <a href="https://wa.me/5588999187227" class="float-wa" target="_blank" aria-label="WhatsApp">💬</a>
+
+  <!-- Link para a lógica de scripts externos -->
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
