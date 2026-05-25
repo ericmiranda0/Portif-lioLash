@@ -147,7 +147,20 @@
   <div class="modal-bg" id="modal" onclick="closeModal(event)">
     <div class="modal-box" onclick="event.stopPropagation()">
       <button class="modal-close" onclick="closeModal()">✕</button>
-      <img src="" alt="" id="modal-img" class="modal-img">
+      
+      <!-- Wrapper da Galeria Slider -->
+      <div class="modal-gallery-wrapper">
+        <button class="gallery-nav prev" onclick="prevGalleryImage(event)" aria-label="Anterior">‹</button>
+        <div class="modal-img-slider" id="modal-img-slider">
+          <img src="" alt="" id="modal-img" class="modal-img">
+        </div>
+        <button class="gallery-nav next" onclick="nextGalleryImage(event)" aria-label="Próximo">›</button>
+        <!-- Contador de fotos elegante (ex: 1 / 3) -->
+        <div class="gallery-counter" id="gallery-counter">1 / 3</div>
+        <!-- Dica visual de arrastar para o lado -->
+        <div class="gallery-swipe-tip">Deslize para ver mais fotos ↔</div>
+      </div>
+
       <div class="modal-content">
         <div class="modal-badge" id="modal-badge">ESTILO</div>
         <h3 class="modal-style" id="modal-style">Cílios Princesa</h3>

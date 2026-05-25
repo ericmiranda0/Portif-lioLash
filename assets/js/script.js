@@ -151,10 +151,32 @@ if (filterBar) {
 // Inicializar portfólio
 buildPortfolio();
 
-// ─── MODAL ──────────────────────────────────
+// ─── MODAL GALERIA SLIDER E TOUCH ─────────────────────────────
+let activeGallery = [];
+let activeGalleryIndex = 0;
+let touchStartX = 0;
+let touchEndX = 0;
+
 function openModal(id, e) {
   if (e) e.stopPropagation();
   const p = portfolioData.find(x => x.id === id);
+  if (!p) return;
+  
+  // Encontrar todas as fotos do mesmo tipo de cílios (mesmo filtro)
+  activeGallery = portfolioData.filter(x => x.filter === p.filter);
+  activeGalleryIndex = activeGallery.findIndex(x => x.id === id);
+  
+  updateModalContent();
+  
+  const modal = document.getElementById('modal');
+  if (modal) {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function updateModalContent() {
+  const p = activeGallery[activeGalleryIndex];
   if (!p) return;
   
   const modalImg = document.getElementById('modal-img');
@@ -162,25 +184,110 @@ function openModal(id, e) {
   const modalStyle = document.getElementById('modal-style');
   const modalDesc = document.getElementById('modal-desc');
   const modalWa = document.getElementById('modal-wa');
-  const modal = document.getElementById('modal');
+  const counter = document.getElementById('gallery-counter');
   
   if (modalImg) {
-    modalImg.src = p.img;
-    modalImg.alt = p.style;
+    // Transição suave elegante (fade + scale)
+    modalImg.style.opacity = '0';
+    modalImg.style.transform = 'scale(0.96)';
+    
+    setTimeout(() => {
+      modalImg.src = p.img;
+      modalImg.alt = p.style;
+      modalImg.style.opacity = '1';
+      modalImg.style.transform = 'scale(1)';
+    }, 150);
   }
+  
   if (modalBadge) modalBadge.textContent = p.badge;
   if (modalStyle) modalStyle.textContent = p.style;
   if (modalDesc) modalDesc.textContent = p.desc;
   
   if (modalWa) {
-    // Mensagem dinâmica adaptada com os novos nomes simplificados e ícone de agenda
     const msg = encodeURIComponent(`Olá! Gostei do modelo ${p.style} (${p.badge}) mostrado no seu portfólio e gostaria de agendar um horário. 🗓️`);
     modalWa.href = `https://wa.me/${WA}?text=${msg}`;
   }
   
-  if (modal) {
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
+  if (counter) {
+    counter.textContent = `${activeGalleryIndex + 1} / ${activeGallery.length}`;
+  }
+  
+  // Ocultar setas e dica se houver apenas 1 foto na categoria
+  const prevBtn = document.querySelector('.gallery-nav.prev');
+  const nextBtn = document.querySelector('.gallery-nav.next');
+  const swipeTip = document.querySelector('.gallery-swipe-tip');
+  
+  if (prevBtn && nextBtn) {
+    const showNav = activeGallery.length > 1 ? 'flex' : 'none';
+    prevBtn.style.display = showNav;
+    nextBtn.style.display = showNav;
+  }
+  if (swipeTip) {
+    swipeTip.style.display = activeGallery.length > 1 ? 'block' : 'none';
+  }
+}
+
+function prevGalleryImage(e) {
+  if (e) e.stopPropagation();
+  if (activeGallery.length <= 1) return;
+  activeGalleryIndex = (activeGalleryIndex - 1 + activeGallery.length) % activeGallery.length;
+  updateModalContent();
+}
+
+function nextGalleryImage(e) {
+  if (e) e.stopPropagation();
+  if (activeGallery.length <= 1) return;
+  activeGalleryIndex = (activeGalleryIndex + 1) % activeGallery.length;
+  updateModalContent();
+}
+
+// Configurar gestos de deslizar (swipe) e arrastar (mouse drag)
+function setupGalleryTouch() {
+  const wrapper = document.querySelector('.modal-gallery-wrapper');
+  if (!wrapper) return;
+  
+  // Touch Events para mobile
+  wrapper.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+  
+  wrapper.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, { passive: true });
+  
+  // Mouse Drag Events para desktop
+  let isDragging = false;
+  let startX = 0;
+  
+  wrapper.addEventListener('mousedown', e => {
+    isDragging = true;
+    startX = e.clientX;
+  }, { passive: true });
+  
+  wrapper.addEventListener('mouseup', e => {
+    if (!isDragging) return;
+    isDragging = false;
+    const endX = e.clientX;
+    const diff = endX - startX;
+    if (diff > 50) {
+      prevGalleryImage();
+    } else if (diff < -50) {
+      nextGalleryImage();
+    }
+  }, { passive: true });
+  
+  wrapper.addEventListener('mouseleave', () => {
+    isDragging = false;
+  }, { passive: true });
+}
+
+function handleSwipe() {
+  const diff = touchEndX - touchStartX;
+  if (diff > 50) {
+    prevGalleryImage(); // Swipe para a direita -> Foto anterior
+  } else if (diff < -50) {
+    nextGalleryImage(); // Swipe para a esquerda -> Próxima foto
   }
 }
 
@@ -191,6 +298,13 @@ function closeModal(e) {
     modal.classList.remove('open');
     document.body.style.overflow = '';
   }
+}
+
+// Inicializar ouvintes da galeria assim que possível
+document.addEventListener('DOMContentLoaded', setupGalleryTouch);
+// Caso o DOMContentLoaded já tenha disparado
+if (document.readyState === 'interactive' || document.readyState === 'complete') {
+  setupGalleryTouch();
 }
 
 // ─── CARE TABS ──────────────────────────────

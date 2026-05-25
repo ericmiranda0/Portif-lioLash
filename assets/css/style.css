@@ -445,9 +445,94 @@ section{padding:5rem 1.5rem}
   display:flex;align-items:center;justify-content:center;
   z-index:10;
 }
-.modal-img{
-  width:100%;aspect-ratio:3/4;object-fit:cover;
-  display:block;
+.modal-gallery-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: #000;
+  touch-action: pan-y;
+  user-select: none;
+}
+.modal-img-slider {
+  width: 100%;
+  height: 100%;
+}
+.modal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(26, 22, 18, 0.4);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  color: var(--gold-light);
+  font-size: 1.8rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 15;
+  transition: all 0.3s ease;
+  line-height: 1;
+}
+.gallery-nav:hover, .gallery-nav:active {
+  background: var(--gold);
+  color: var(--text-dark);
+  border-color: var(--gold);
+  transform: translateY(-50%) scale(1.1);
+}
+.gallery-nav.prev {
+  left: 1rem;
+}
+.gallery-nav.next {
+  right: 1rem;
+}
+.gallery-counter {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(26, 22, 18, 0.65);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(201, 169, 110, 0.3);
+  color: var(--gold-light);
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  z-index: 15;
+}
+.gallery-swipe-tip {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(26, 22, 18, 0.65);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--font-sans);
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  z-index: 15;
+  pointer-events: none;
+  animation: pulseTip 2.5s infinite ease-in-out;
+}
+@keyframes pulseTip {
+  0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(0.98); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.02); }
 }
 .modal-content{
   background:var(--warm-white);
